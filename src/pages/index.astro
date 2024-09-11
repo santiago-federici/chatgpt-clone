@@ -1,7 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import MessageBar from "../components/message-bar.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main></main>
+  <main class="bg-card flex-1 relative">
+    <MessageBar />
+  </main>
 </Layout>
