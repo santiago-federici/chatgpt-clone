@@ -1,10 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ConversationContainer from "../components/conversation-container.astro";
 import MessageBar from "../components/message-bar.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <main class="bg-card flex-1 relative">
+  <main class="bg-card flex-1 relative flex flex-col">
+    <ConversationContainer />
     <MessageBar />
   </main>
 </Layout>
