@@ -5,6 +5,10 @@ import CreateConversation from "./create-conversation";
 export default function Sidebar() {
   const conversations = getConversations();
 
+  const handleDotsClick = () => {
+    console.log("dots clicked");
+  };
+
   return (
     <aside className="h-screen w-64 bg-background py-10 px-4 space-y-20">
       <CreateConversation />
@@ -18,13 +22,17 @@ export default function Sidebar() {
           {conversations &&
             conversations.length > 0 &&
             conversations.map((conversation) => (
-              <a
-                href={`/conversations/${conversation.id}`}
-                className="group flex items-center justify-between gap-1 hover:bg-muted p-2 text-sm rounded-md w-full cursor-pointer duration-200"
-              >
-                {conversation.name}
-                <DotsIcon className="hidden group-hover:flex text-muted-foreground size-4 hover:text-white duration-200" />
-              </a>
+              <li className="group flex items-center justify-between gap-1 hover:bg-muted p-2 text-sm rounded-md w-full cursor-pointer duration-200">
+                <a
+                  href={`/conversations/${conversation.id}`}
+                  className="w-full"
+                >
+                  {conversation.name}
+                </a>
+                <span onClick={handleDotsClick}>
+                  <DotsIcon className="hidden group-hover:flex text-muted-foreground size-4 hover:text-white duration-200" />
+                </span>
+              </li>
             ))}
         </ul>
       </section>
