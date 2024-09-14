@@ -22,7 +22,10 @@ export default function Sidebar() {
           {conversations &&
             conversations.length > 0 &&
             conversations.map((conversation) => (
-              <li className="group flex items-center justify-between gap-1 hover:bg-muted p-2 text-sm rounded-md w-full cursor-pointer duration-200">
+              <li
+                key={conversation.id}
+                className="group flex items-center justify-between gap-1 hover:bg-muted p-2 text-sm rounded-md w-full cursor-pointer duration-200"
+              >
                 <a
                   href={`/conversations/${conversation.id}`}
                   className="w-full"
