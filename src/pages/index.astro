@@ -1,10 +1,13 @@
 ---
+import CreateConversation from "@/components/create-conversation";
 import Layout from "../layouts/Layout.astro";
-import ConversationContainer from "../components/conversation-container.astro";
-import MessageBar from "../components/message-bar.astro";
+import OpenaiIcon from "@/icons/openai.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-  <ConversationContainer />
-  <MessageBar />
+  <section class="flex flex-col mx-auto my-auto gap-10 items-center">
+    <h1 class="text-3xl font-semibold">Bienvenido a nuestro chat!</h1>
+    <OpenaiIcon class="size-16 mx-auto" />
+    <CreateConversation client:load className="justify-center w-fit" />
+  </section>
 </Layout>
