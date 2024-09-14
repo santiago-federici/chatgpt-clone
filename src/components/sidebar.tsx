@@ -38,10 +38,13 @@ export default function Sidebar() {
           {conversations &&
             conversations.length > 0 &&
             conversations.map((conversation) => (
-              <li className="group flex items-center justify-between gap-1 hover:bg-muted p-2 text-sm rounded-md w-full cursor-pointer duration-200">
+              <a
+                href={`/conversations/${conversation.id}`}
+                className="group flex items-center justify-between gap-1 hover:bg-muted p-2 text-sm rounded-md w-full cursor-pointer duration-200"
+              >
                 {conversation.name}
                 <DotsIcon className="hidden group-hover:flex text-muted-foreground size-4 hover:text-white duration-200" />
-              </li>
+              </a>
             ))}
         </ul>
       </section>
