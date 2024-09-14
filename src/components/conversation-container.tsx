@@ -1,7 +1,8 @@
 "use client";
 
-import { cn } from "@/lib/utils";
 import { useState } from "react";
+
+import { cn } from "@/lib/utils";
 
 interface Message {
   text: string;
@@ -27,20 +28,17 @@ export default function ConversationContainer() {
   );
 
   return (
-    <section className="w-full h-full">
-      <div className="w-[50%] mx-auto py-8 h-full flex flex-col gap-16">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={cn({
-              "bg-muted max-w-screen-sm self-end p-3 rounded-md":
-                message.isUser,
-            })}
-          >
-            <p className="text-sm text-muted-foreground">{message.text}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <div className="w-[50%] mx-auto py-8 h-[calc(100vh_-_8rem)] flex flex-col gap-16 overflow-y-auto pr-6">
+      {messages.map((message, index) => (
+        <div
+          key={index}
+          className={cn({
+            "bg-muted max-w-screen-sm self-end p-3 rounded-md": message.isUser,
+          })}
+        >
+          <p className="text-sm text-muted-foreground">{message.text}</p>
+        </div>
+      ))}
+    </div>
   );
 }
