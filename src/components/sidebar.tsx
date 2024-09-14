@@ -1,34 +1,14 @@
-"use client";
-
-import { useState } from "react";
-
-import { PlusIcon } from "../icons/plus";
 import { DotsIcon } from "../icons/dots";
-
-interface Conversation {
-  id: number;
-  name: string;
-}
+import { getConversations } from "../lib/data";
+import CreateConversation from "./create-conversation";
 
 export default function Sidebar() {
-  const [conversations, setConversations] = useState<Conversation[]>([]);
-
-  const handleCreateConversation = () => {
-    setConversations([
-      ...conversations,
-      { id: conversations.length + 1, name: "Nueva conversación" },
-    ]);
-  };
+  const conversations = getConversations();
 
   return (
     <aside className="h-screen w-64 bg-background py-10 px-4 space-y-20">
-      <button
-        className="flex items-center gap-1 hover:bg-muted p-3 rounded-md w-full text-sm duration-200"
-        onClick={handleCreateConversation}
-      >
-        <PlusIcon className="size-4" />
-        Nueva conversación
-      </button>
+      <CreateConversation />
+
       <span className="w-full h-px bg-neutral-800 flex"></span>
 
       <section className="space-y-4">
