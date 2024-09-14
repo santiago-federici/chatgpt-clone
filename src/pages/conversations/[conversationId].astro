@@ -1,12 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import ConversationContainer from "@/components/conversation-container";
-import MessageBar from "@/components/message-bar.astro";
+import MessageBar from "@/components/message-bar";
 
 const { conversationId } = Astro.params;
 ---
 
 <Layout title="Welcome to Astro.">
-  <ConversationContainer />
-  <MessageBar />
+  <ConversationContainer client:load />
+  <MessageBar client:load />
 </Layout>
