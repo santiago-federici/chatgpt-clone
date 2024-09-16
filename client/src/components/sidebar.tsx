@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import CreateConversation from "./create-conversation";
 
-import { getAllConversations } from "../lib/data";
+import { getAllConversations } from "@/lib/data";
 
 import { DotsIcon } from "../icons/dots";
 
