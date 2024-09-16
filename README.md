@@ -22,7 +22,7 @@ python -m venv my_venv
 my_venv/Scripts/activate
 ```
 
-- Install all neccessary dependencies.
+- Install all necessary dependencies.
 ```bash
 pip install -r .\requirements.txt
 ```
@@ -39,7 +39,7 @@ flask --app .\src\app.py run --port 8080
 cd client
 ```
 
-- Install the neccessary dependencies. I use [npm](https://www.npmjs.com/) to install and manage the dependencies, but you can choose a different package manager.
+- Install the necessary dependencies. I use [npm](https://www.npmjs.com/) to install and manage the dependencies, but you can choose a different package manager.
 
 ```bash
 npm install
