@@ -2,13 +2,20 @@
 
 import { useState } from "react";
 
+import { sendMessage } from "@/actions/messages";
+
 import { SendIcon } from "@/icons/send";
 
-export default function MessageBar() {
+export default function MessageBar({
+  conversationId,
+}: {
+  conversationId: string;
+}) {
   const [input, setInput] = useState("");
 
-  const handleSendMessage = () => {
-    console.log("click");
+  const handleSendMessage = async () => {
+    await sendMessage(conversationId, input);
+    setInput("");
   };
 
   return (
