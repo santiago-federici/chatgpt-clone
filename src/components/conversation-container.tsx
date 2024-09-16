@@ -4,12 +4,16 @@ import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
+import io from "socket.io-client";
+
 import { getConversation } from "@/lib/data";
 
 interface Message {
   content: string;
   role: string;
 }
+
+const socket = io("http://127.0.0.1:8080");
 
 export default function ConversationContainer({
   conversationId,
@@ -24,6 +28,18 @@ export default function ConversationContainer({
       setMessages(conversation.messages);
     };
     findMessages();
+
+    // Join the WebSocket room for the specific conversation
+    socket.emit("join", { room: conversationId });
+
+    // Listen for new messages from WebSocket
+    socket.on("newMessage", (newMessage: Message) => {
+      setMessages((prevMessages) => [...prevMessages!, newMessage]);
+    });
+
+    return () => {
+      socket.off("newMessage"); // Clean up the listener when component unmounts
+    };
   }, [conversationId]);
 
   return (
