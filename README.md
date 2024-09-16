@@ -34,6 +34,8 @@ flask --app .\src\app.py run --port 8080
 cd client
 ```
 
+- I use [npm](https://www.npmjs.com/) to install and manage the dependencies, but you can choose a different package manager.
+
 ```bash
 npm install
 ```
