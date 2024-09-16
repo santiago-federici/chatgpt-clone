@@ -1,3 +1,4 @@
+import { createConversation } from "@/actions/messages";
 import { PlusIcon } from "../icons/plus";
 
 export default function CreateConversation({
@@ -5,9 +6,8 @@ export default function CreateConversation({
 }: {
   className?: string;
 }) {
-  const handleCreateConversation = () => {
-    // TODO: communicate with the backend and call an endpoint to create a new conversation
-    console.log("conversation created");
+  const handleCreateConversation = async () => {
+    await createConversation();
   };
 
   return (
