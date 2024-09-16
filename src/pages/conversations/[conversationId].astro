@@ -7,6 +7,6 @@ const { conversationId } = Astro.params;
 ---
 
 <Layout title="Welcome to Astro.">
-  <ConversationContainer client:load />
-  <MessageBar client:load />
+  <ConversationContainer conversationId={conversationId!} client:load />
+  <MessageBar conversationId={conversationId!} client:load />
 </Layout>
